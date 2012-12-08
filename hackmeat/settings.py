@@ -1,10 +1,5 @@
 import os
 
-# Make Celery work
-from celery.schedules import crontab
-import djcelery
-djcelery.setup_loader()
-
 PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
 VERSION = '0.1'
