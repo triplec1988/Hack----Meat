@@ -14,21 +14,19 @@
         </div>
 {% endblock %}
 {% block content %}
+<h3>Please select the cuts you want.</h3>
 <div class="container">
 	<div class="row-fluid">
-		<div class="span12">
-		<h3>Please select the cuts you want.</h3>
-
-		<form action="" method="post">
-		  {% csrf_token %}
-		  {{ form.as_p }}
-		 <div class="row-fluid">
-    		<div class="span6">
-				<a class="btn btn-info btn-large" href="/r/res_complete">Submit Your Order</a>
-			</div>
-		 </div>
-		  </form>
+		<div class="span6">
+			<form action="" method="post">
+		  	{% csrf_token %}
+		  	{{ form.as_p }}
+			<a class="btn btn-info btn-large" href="/r/res_complete">Submit Your Order</a>
+		 	</form>
 		</div>
+		<div class="span6">
+			<img src="{{STATIC_URL}}img/barn_cow.jpg">
+		</div><!--span6--> 
 	</div>
 </div>
 {% endblock %}

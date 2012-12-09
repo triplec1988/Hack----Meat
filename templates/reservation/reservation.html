@@ -16,31 +16,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="row-fluid" style="position:relative;">
-	<div class="span4">
-		<img src="{{STATIC_URL}}img/barn_cow.jpg">
-	</div><!--span4-->
-</div>
-<div class="container">
-	<h3>Processor Reservation Form</h3>
-
-	<form action="" method="post">
-	  {% csrf_token %}
-	  {{ form.as_p }}
-	  <div class="row-fluid">
-    	<div class="span6">
-			<a class="btn btn-info btn-large" href="/r/res_cut_step">Choose Your Cuts</a>
-		</div>
-		</div>
-	  </form>
-</div>
-
-
-
-
-
-
-
+<h3 style="padding: 0 0 0 15px;">Processor Reservation Form</h3>
+	<div class="row-fluid">
+		<div class="span6" style="padding: 0 0 0 15px;">
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+    			<a class="btn btn-info btn-large" href="/r/res_cut_step">Choose Your Cuts</a>
+	  		</form>
+		</div>  
+		<div class="span6">
+			<img src="{{STATIC_URL}}img/barn_cow.jpg">
+		</div><!--span6--> 
+	</div>
 
 {% endblock %}
 
