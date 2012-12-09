@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
+from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('hackmeat.account.views',
     url(r'processors/(?P<zipcode>\d+)?/?$', r'processors'),
@@ -8,4 +9,5 @@ urlpatterns = patterns('hackmeat.account.views',
     url(r'settings/farmer/?$', r'settings_farmer'),
     url(r'settings/processor?$', r'settings_processor'),
     url(r'processor/(?P<processor>\d+)/?$', r'processor'),
+    url(r'farmer/dashboard/$', direct_to_template, {'template': 'account/farmer_dashboard.html'})
 )

@@ -26,8 +26,8 @@ class Processor(models.Model):
     city = models.CharField(max_length=50)
     zipcode = models.PositiveIntegerField(max_length=10)
     resource = models.ManyToManyField('Resource')
-    animal_spec = models.CharField(max_length=140)
-    cut_spec = models.CharField(max_length=140)
+    animal_spec = models.CharField(max_length=140, verbose_name='Animal Specialization', blank=True)
+    cut_spec = models.CharField(max_length=140, verbose_name='Butchering Specialization', blank=True)
     capacity = models.PositiveIntegerField()
 
     def __unicode__(self):
