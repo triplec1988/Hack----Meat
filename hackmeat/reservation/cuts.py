@@ -1,3 +1,8 @@
+ANIMALS = (
+    ('P', 'Pigs'),
+    ('C', 'Cattle'),
+)
+
 PORK_SHOULDER = (
     ('BB', 'Boston Butt Roast'),
     ('PR', 'Picnic Roast'),

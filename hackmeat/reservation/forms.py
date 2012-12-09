@@ -1,10 +1,6 @@
 from django import forms
 from django.core.validators import *
-
-ANIMALS = (
-    ('P', 'Pigs'),
-    ('C', 'Cattle'),
-)
+from cuts import *
 
 
 class ReservationForm(forms.Form):
@@ -20,4 +16,15 @@ class ReservationForm(forms.Form):
 
 
 class CutForm(forms.Form):
-	pork_shoulder
+    pork_shoulder = forms.ChoiceField(choices=PORK_SHOULDER, required=False, widget=forms.RadioSelect)
+    pork_loin = forms.ChoiceField(choices=PORK_LOIN, required=False, widget=forms.RadioSelect)
+    pork_belly = forms.ChoiceField(choices=PORK_BELLY, required=False, widget=forms.RadioSelect)
+    pork_leg = forms.ChoiceField(choices=PORK_LEG, required=False, widget=forms.RadioSelect)
+    pork_sausage = forms.ChoiceField(choices=PORK_SAUSAGE, required=False, widget=forms.RadioSelect)
+    pork_other = forms.ChoiceField(choices=PORK_OTHER, required=False, widget=forms.RadioSelect)
+    beef_rib = forms.ChoiceField(choices=BEEF_RIB, required=False, widget=forms.RadioSelect)
+    beef_loin = forms.ChoiceField(choices=BEEF_LOIN, required=False, widget=forms.RadioSelect)
+    beef_sirloin = forms.ChoiceField(choices=BEEF_SIRLOIN, required=False, widget=forms.RadioSelect)
+    beef_round = forms.ChoiceField(choices=BEEF_ROUND, required=False, widget=forms.RadioSelect)
+    beef_other = forms.ChoiceField(choices=BEEF_OTHER, required=False, widget=forms.RadioSelect)
+    special_instructions = forms.CharField(required=False, widget=forms.Textarea)
