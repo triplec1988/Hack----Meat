@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Please select the cuts you want.</p>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p><button type="submit">Submit</button></p>
+  </form>
+
+{% endblock %}
