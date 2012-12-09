@@ -6,7 +6,7 @@
   </div>
   <div class="modal-body">
     <p>Enter your zipcode</p>
-    <input type="text" id="someInput">
+    <input type="text" id="zipcode">
   </div>
   <div class="modal-footer">
     <a id="goButton" class="btn btn-primary">Go!</a>
@@ -19,9 +19,9 @@
 
 
 <script>
-  var zipcode;
-  $('#someInput').bind('input', function() { 
-      zipcode = $(this).val() // get the current value of the input field.
+  var goButton;
+  $('#goButton').on('click', function() { 
+      zipcode = document.getElementById('zipcode').value; // get the current value of the input field.
 
       var link = document.getElementById('goButton');
       link.href = "/u/processors/" + zipcode;
