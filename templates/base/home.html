@@ -7,15 +7,32 @@
 
 {% block content %}
 <div class="row-fluid splash-title-row">
-    <div class="span2"></div>
+    <div class="span1"></div>
     <div class="span5">
         <h1 class="splash-title">
             Slot for Slaught
         </h1>
     </div>
-    <div class="span3">
-        <a class="btn btn-large" href="#farmerModal" data-target="#farmerModal" role="button" data-toggle="modal">Farmer</a>
-        <a class="btn btn-large" href="/u/signup/processor/">Processor</a>
+</div>
+
+<div class="row-fluid">
+    <div class="span10 offset1">
+        <div class="hero-unit">
+            <div class="row-fluid">
+                <div class="span6">
+                    <img src="{{STATIC_URL}}img/landing.jpeg"></img>
+                </div>
+                <div class="span6">
+                  <h1>Welcome to Slot for Slaught!</h1>
+                  <p>An easy, efficient way to connect Producers and Processors.</p>
+                  <p>Are you a: </p>
+                  <p>
+                    <a class="btn btn-info btn-large" href="#farmerModal" data-target="#farmerModal" role="button" data-toggle="modal">Farmer?</a>
+                    <a class="btn btn-info btn-large" href="/u/signup/processor/">Processor?</a>
+                  </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

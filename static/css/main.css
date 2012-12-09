@@ -21,4 +21,13 @@ html, body {
 
 #calendar {
 	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.title {
+	margin-bottom:10px;
+}
+
+.hero-unit {
+	background-color:white !important;
 }
