@@ -32,7 +32,7 @@ def reservation(request):
         form = forms.ReservationForm(request.POST)
         if form.is_valid():
             print form.cleaned_data
-            form = forms.CutForm(request.GET)
+            form = forms.CutForm(request.POST)
             return render_to_response('reservation/cut_step.html', {'form': form},context_instance=RequestContext(request))
     else:
         form = forms.ReservationForm()
@@ -48,7 +48,7 @@ def cut_step(request):
         if form.is_valid():
             print form.cleaned_data
             
-            return render_to_response('reservation/reservation_complete.html', {},context_instance=RequestContext(request))
+            return redirect('reservation_complete')
     else:
         form = forms.CutForm()
         
