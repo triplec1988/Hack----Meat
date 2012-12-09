@@ -120,11 +120,11 @@ SECRET_KEY = 'svgx&amp;v*&amp;)ar%kmr_hfs=e@=4$vvxzqtjw#&amp;5+cg)5@zftzs$e4'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    ('pyjade.ext.django.Loader', (
+    (
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
         'django.template.loaders.eggs.Loader',
-    )),
+    ),
 )
 
 MIDDLEWARE_CLASSES = (
