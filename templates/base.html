@@ -18,11 +18,28 @@
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
+        {% block modals %}
+        {% endblock %}
+
+        {% block nav %}
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Slot for Slaught</a>
+                <ul class="nav pull-right">
+                  <li class="active"><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock %}
+
         {% block content %}{% endblock %}
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="{{STATIC_URL}}js/plugins.js"></script>
+        <script src="{{STATIC_URL}}js/jquery.fittext.js"></script>
         <script src="{{STATIC_URL}}js/main.js"></script>
 
     </body>

@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
+{% block nav %}
+{% endblock %}
+
+{% block modals %}
+    {% include "base/modals.html" %}
+{% endblock %}
+
+
 {% block content %}
-hello
+<div class="row-fluid splash-title-row">
+    <div class="span2"></div>
+    <div class="span5">
+        <h1 class="splash-title">
+            Slot for Slaught
+        </h1>
+    </div>
+    <div class="span3">
+        <a class="btn btn-large">Farmer</a>
+        <a class="btn btn-large">Processor</a>
+    </div>
+</div>
 {% endblock %}
