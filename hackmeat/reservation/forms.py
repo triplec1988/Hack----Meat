@@ -26,4 +26,4 @@ class CutForm(forms.Form):
     beef_sirloin = forms.ChoiceField(choices=BEEF_SIRLOIN, required=False, widget=forms.CheckboxSelectMultiple)
     beef_round = forms.ChoiceField(choices=BEEF_ROUND, required=False, widget=forms.CheckboxSelectMultiple)
     beef_other = forms.ChoiceField(choices=BEEF_OTHER, required=False, widget=forms.CheckboxSelectMultiple)
-    special_instructions = forms.CharField(required=False, widget=forms.Textarea)
+    special_instructions = forms.CharField(required=False, widget=forms.Textarea(attrs={'cols': 60}))
