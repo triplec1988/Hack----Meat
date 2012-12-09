@@ -73,7 +73,25 @@ $(window).load(function(){
 						title: 'Click for Google',
 						start: new Date(y, m, 28),
 						end: new Date(y, m, 29),
-						url: 'http://google.com/'
+						allDay: false
+					},
+					{
+						title: 'Booked',
+						start: new Date(y, m, d, 16, 0),
+						end: new Date(y, m, d, 18, 0),
+						allDay: false
+					},
+					{
+						title: 'Booked',
+						start: new Date(y, m, d, 14, 30),
+						end: new Date(y, m, d, 15, 0),
+						allDay: false
+					},
+					{
+						title: 'Booked',
+						start: new Date(y, m, d, 20, 0),
+						end: new Date(y, m, d, 23, 0),
+						allDay: false
 					}
 				]
 			});
