@@ -162,6 +162,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.markup',
     'hackmeat.base',
+    'hackmeat.account',
+    'hackmeat.reservation',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
