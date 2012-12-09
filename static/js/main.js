@@ -11,6 +11,7 @@ $(window).load(function(){
 					center: 'title',
 					right: 'month,agendaWeek,agendaDay'
 				},
+				defaultView: 'agendaWeek',
 				selectable: true,
 				selectHelper: true,
 				select: function(start, end, allDay) {
@@ -63,9 +64,9 @@ $(window).load(function(){
 						allDay: false
 					},
 					{
-						title: 'Birthday Party',
-						start: new Date(y, m, d+1, 19, 0),
-						end: new Date(y, m, d+1, 22, 30),
+						title: 'Unavailable',
+						start: new Date(y, m, d+1, 0, 0),
+						end: new Date(y, m, d+1, 24, 0),
 						allDay: false
 					},
 					{
