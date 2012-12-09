@@ -1,78 +1,79 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div class="row-fluid">
-	<h1 class="span10 offset1 title">Nichols Packing Company</h1>
-</div>
-
-<div class="row-fluid">
-	<div class="span5 offset1">
-		<img src="{{STATIC_URL}}img/happycows.jpg" id="happycows"></img>
+<div class="container">
+	<div class="row-fluid">
+		<h1 class="span12 title">Nichols Packing Company</h1>
 	</div>
-	<div class="span5">
-		<div class="tabbable"> <!-- Only required for left/right tabs -->
-		  <ul class="nav nav-tabs">
-		    <li class="active"><a href="#tab1" data-toggle="tab">Processor Details</a></li>
-		    <li><a href="#tab2" data-toggle="tab">List of Services</a></li>
-		  </ul>
-		  <div class="tab-content">
-		    <div class="tab-pane active" id="tab1">
-		      <p>Hello, we are your friendly local slaughterhouse.</p>
-		      <p>We believe deeply in sustainable and ethical processing. Consider us for all your processing needs. Select your time and we'll get back to you as soon as possible!</p>
-		      <br>
-		      <p>7277 Dunnsville Rd</p>
-			  <p>Altamont, NY</p>
-		      <p>518-355-6944</p>
-		      <p>Open 8am - 7pm</p>
-		    </div>
-		    <div class="tab-pane" id="tab2">
-		      <p>These are the services we provide:</p>
-		      <ul>
-		      	<li>
-		      		Curing
-		      	</li>
-		      	<li>
-					Smoking		      		
-		      	</li>
-		      	<li>
-		      	Sausage
-		      	</li>
-		      	<li>
-		      	Ground Meat
-		      	</li>
-		      	<li>
-		      	Custom Cuts
-		      	</li>
-		      	<li>
-		      	Halal/Kosher
-		      	</li>
-		      	<li>
-		      	Packaging
-		      	</li>
-		      	<li>
-		      	Labeling
-		      	</li>
-		      	<li>
-		      	Receipes
-		      	</li>
-		      </ul>
-		    </div>
-		  </div>
+
+	<div class="row-fluid">
+		<div class="span6">
+			<img src="{{STATIC_URL}}img/happycows.jpg" id="happycows"></img>
+		</div>
+		<div class="span6">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+			  <ul class="nav nav-tabs">
+			    <li class="active"><a href="#tab1" data-toggle="tab">Processor Details</a></li>
+			    <li><a href="#tab2" data-toggle="tab">List of Services</a></li>
+			  </ul>
+			  <div class="tab-content">
+			    <div class="tab-pane active" id="tab1">
+			      <p>Hello, we are your friendly local slaughterhouse.</p>
+			      <p>We believe deeply in sustainable and ethical processing. Consider us for all your processing needs. Select your time and we'll get back to you as soon as possible!</p>
+			      <br>
+			      <p>7277 Dunnsville Rd</p>
+				  <p>Altamont, NY</p>
+			      <p>518-355-6944</p>
+			      <p>Open 8am - 7pm</p>
+			    </div>
+			    <div class="tab-pane" id="tab2">
+			      <p>These are the services we provide:</p>
+			      <ul>
+			      	<li>
+			      		Curing
+			      	</li>
+			      	<li>
+						Smoking		      		
+			      	</li>
+			      	<li>
+			      	Sausage
+			      	</li>
+			      	<li>
+			      	Ground Meat
+			      	</li>
+			      	<li>
+			      	Custom Cuts
+			      	</li>
+			      	<li>
+			      	Halal/Kosher
+			      	</li>
+			      	<li>
+			      	Packaging
+			      	</li>
+			      	<li>
+			      	Labeling
+			      	</li>
+			      	<li>
+			      	Receipes
+			      	</li>
+			      </ul>
+			    </div>
+			  </div>
+			</div>
 		</div>
 	</div>
-</div>
 
 
 
-<div class="row-fluid">
-	<div class="span10 offset1">
-		<div id="calendar">
+	<div class="row-fluid">
+		<div class="span12">
+			<div id="calendar">
+			</div>
+		<div>
+			<button type="submit" class="btn btn-large btn-primary">Submit</button>
 		</div>
-	<div>
-		<button type="submit" class="btn btn-large btn-primary">Submit</button>
-	</div>
-	<br>
+		<br>
+		</div>
 	</div>
 </div>
 

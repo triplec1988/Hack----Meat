@@ -3,11 +3,15 @@ from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('hackmeat.account.views',
-    url(r'processors/(?P<zipcode>\d+)?/?$', r'processors'),
+    url(r'processors/(?P<zipcode>\d+)/?$', r'processors'),
     url(r'signup/farmer/?$', r'signup_farmer'),
     url(r'signup/processor/?$', r'signup_processor'),
     url(r'settings/farmer/?$', r'settings_farmer'),
     url(r'settings/processor?$', r'settings_processor'),
     url(r'processor/(?P<processor>\d+)/?$', r'processor'),
+<<<<<<< HEAD
     url(r'farmer/dashboard/$', direct_to_template, {'template': 'account/farmer_dashboard.html'})
+=======
+    url(r'processor/dashboard/$', direct_to_template, { 'template': 'account/processor_dashboard.html' }, ),
+>>>>>>> b5ec82c656af5f822edfc00f4e2abf6fcdce4c00
 )

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12">
+		<h3>Please select the cuts you want.</h3>
+
+		<form action="" method="post">
+		  {% csrf_token %}
+		  {{ form.as_p }}
+		  <p><button type="submit">Submit</button></p>
+		  </form>
+		</div>
+	</div>
+</div>
+{% endblock %}
