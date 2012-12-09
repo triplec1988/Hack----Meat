@@ -11,8 +11,8 @@ class ReservationForm(forms.Form):
     animal_quantity_one = forms.IntegerField()
     animal_type_two = forms.ChoiceField(choices=ANIMALS, required=False)
     animal_quantity_two = forms.IntegerField(required=False)
-    dropoff = forms.DateTimeField()
-    pickup = forms.DateTimeField()
+    dropoff = forms.DateField()
+    pickup = forms.DateField()
 
 
 class CutForm(forms.Form):

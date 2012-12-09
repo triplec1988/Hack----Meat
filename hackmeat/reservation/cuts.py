@@ -1,4 +1,5 @@
 ANIMALS = (
+    ('-', '--')
     ('P', 'Pigs'),
     ('C', 'Cattle'),
 )
