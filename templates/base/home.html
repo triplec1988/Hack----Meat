@@ -7,11 +7,18 @@
 
 {% block content %}
 <div class="row-fluid splash-title-row">
-    <div class="span1"></div>
-    <div class="span5">
-        <h1 class="splash-title">
+    <div class="span10 offset1">
+        <h1 class="splash-title" style="float:left">
             Slot for Slaught
         </h1>
+        <form class="form-inline" style="float:right; margin-top:20px">
+          <input type="text" class="input-small" placeholder="Email">
+          <input type="password" class="input-small" placeholder="Password">
+          <label class="checkbox">
+            <input type="checkbox"> Remember me
+          </label>
+          <button type="submit" class="btn">Sign in</button>
+        </form>
     </div>
 </div>
 
