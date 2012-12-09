@@ -21,7 +21,25 @@ def signup_processor(request):
                             context_instance=RequestContext(request))
 
 
+def settings_farmer(request):
+    return render_to_response('account/settings_farmer.html',
+                            {},
+                            context_instance=RequestContext(request))
+
+
+def settings_processor(request):
+    return render_to_response('account/settings_processor.html',
+                            {},
+                            context_instance=RequestContext(request))
+
+
 def processor(request):
     return render_to_response('account/processor.html',
+                            {},
+                            context_instance=RequestContext(request))
+
+
+def farmer(request):
+    return render_to_response('account/farmer.html',
                             {},
                             context_instance=RequestContext(request))

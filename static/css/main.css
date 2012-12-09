@@ -12,3 +12,9 @@ html, body {
 .splash-title-row {
     margin-top: 60px;
 }
+
+.center { 
+    float: none;
+    margin-left: auto;
+    margin-right: auto; 
+}
