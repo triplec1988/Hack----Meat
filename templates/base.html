@@ -18,8 +18,6 @@
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        {% block modals %}
-        {% endblock %}
 
         {% block nav %}
         <div class="navbar">
@@ -36,10 +34,13 @@
 
         {% block content %}{% endblock %}
 
+        {% block modals %}
+        {% endblock %}
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="{{STATIC_URL}}js/plugins.js"></script>
-        <script src="{{STATIC_URL}}js/jquery.fittext.js"></script>
+        <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
         <script src="{{STATIC_URL}}js/main.js"></script>
 
     </body>

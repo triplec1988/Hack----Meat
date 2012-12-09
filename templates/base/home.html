@@ -3,9 +3,6 @@
 {% block nav %}
 {% endblock %}
 
-{% block modals %}
-    {% include "base/modals.html" %}
-{% endblock %}
 
 
 {% block content %}
@@ -17,8 +14,13 @@
         </h1>
     </div>
     <div class="span3">
-        <a class="btn btn-large">Farmer</a>
-        <a class="btn btn-large">Processor</a>
+        <a class="btn btn-large" href="#farmerModal" data-target="#farmerModal" role="button" data-toggle="modal">Farmer</a>
+        <a class="btn btn-large" href="/u/signup/processor/">Processor</a>
     </div>
 </div>
+{% endblock %}
+
+
+{% block modals %}
+    {% include "base/modals.html" %}
 {% endblock %}
