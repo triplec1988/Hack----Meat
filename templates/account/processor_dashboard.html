@@ -6,7 +6,11 @@
                 <a class="brand" href="/">Slot for Slaught</a>
                 <img src="">
                 <ul class="nav pull-right">
-                  <li class="active"><button type="" style="position:relative; top: 7px;border-radius: 5px;background-color: #EFEFEF">EDIT YOUR PROFILE</button></li>
+                  <li class="active"><a href="/r/processor_reserve">Dashboard</a></li>
+                  <li><a href="/u/signup/processor">Pending Requests</a></li>
+                  <li><a href="/u/signup/processor">Closed Orders</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><button type="submit" class="btn btn-info">Logout</button><li>
                 </ul>
             </div>
         </div>
@@ -15,75 +19,83 @@
 
 
 {% block content %}
-<p>New Pending Requests</p>
-<table class="table table-striped table-hover">
-	<tr>
-		<th>Farm Name</th>
-		<th>First Name</th>
-		<th>User Name</th>
-		<th>Drop Off Time</th>
-		<th>Pick Up Time</th>
-		<th>Animal</th>
-		<th>Quantity</th>
-		<th>Special Instructions</th>
-	</tr>
-	<tr>
-		<td><a href="#">EiEiO</a></td>
-		<td>Old McDonald</td>
-		<td>OMC_10</td>
-		<td>4/6/13 - 3:15pm</td>
-		<td>4/13/13 - 2:00pm</td>
-		<td>Pig</td>
-		<td>4</td>
-		<td>Do not keep in separate holding bin.</td>
-	</tr>
-	<tr>
-		<td><a href="#">Sunny Side</a></td>
-		<td>Jane</td>
-		<td>Jane20</td>
-		<td>5/7/13 - 3:15pm</td>
-		<td>5/10/13 - 2:00pm</td>
-		<td>Pig</td>
-		<td>2</td>
-		<td>Pork Belly and Pork Sausage Cuts.</td>
-	</tr>		
+<h1>Bird The Butcher, Inc.</ht>
+<h2>New Pending Requests</h2>
+<div class="row-fluid">
+	<div class="span12">
+		<table class="table table-striped table-condensed table-hover">
+			<tr>
+				<th>Farm Name</th>
+				<th>First Name</th>
+				<th>User Name</th>
+				<th>Drop Off Time</th>
+				<th>Pick Up Time</th>
+				<th>Animal</th>
+				<th>Quantity</th>
+				<th>Special Instructions</th>
+			</tr>
+			<tr>
+				<td><a href="#">EiEiO</a></td>
+				<td>Old McDonald</td>
+				<td>OMC_10</td>
+				<td>4/6/13 - 3:15pm</td>
+				<td>4/13/13 - 2:00pm</td>
+				<td>Pig</td>
+				<td>4</td>
+				<td>Do not keep in separate holding bin.</td>
+			</tr>
+			<tr>
+				<td><a href="#">Sunny Side</a></td>
+				<td>Jane</td>
+				<td>Jane20</td>
+				<td>5/7/13 - 3:15pm</td>
+				<td>5/10/13 - 2:00pm</td>
+				<td>Pig</td>
+				<td>2</td>
+				<td>Pork Belly and Pork Sausage Cuts.</td>
+			</tr>		
+		</table>
+	</div>
+</div>
 
-</table>
-
-<p>Upcoming Activity</p>
-<table class="table table-striped table-hover">
-	<tr>
-		<th>Farm Name</th>
-		<th>First Name</th>
-		<th>User Name</th>
-		<th>Drop Off Time</th>
-		<th>Pick Up Time</th>
-		<th>Animal</th>
-		<th>Quantity</th>
-		<th>Special Instructions</th>
-	</tr>
-	<tr>
-		<td><a href="#">EiEiO</a></td>
-		<td>Old McDonald</td>
-		<td>OMC_10</td>
-		<td>12/3/12 - 5:15pm</td>
-		<td>12/10/12 - 2:00pm</td>
-		<td>Pig</td>
-		<td>3</td>
-		<td>Do not keep in separate holding bin.</td>
-	</tr>
-	<tr>
-		<td><a href="#">Country Farms</a></td>
-		<td>Avery</td>
-		<td>AJ6</td>
-		<td>12/3/12 - 11:00am</td>
-		<td>12/9/12 - 2:00pm</td>
-		<td>Cows</td>
-		<td>2</td>
-		<td>Process within 30 mins of slaughter.</td>
-	</tr>	
-
-</table>
+	<h2>Upcoming Activity</h2>
+	
+<div class="row-fluid">
+	<div class="span12">
+		<table class="table table-striped table-condensed table-hover"><table class="table table-striped table-hover">
+			<tr>
+				<th>Farm Name</th>
+				<th>First Name</th>
+				<th>User Name</th>
+				<th>Drop Off Time</th>
+				<th>Pick Up Time</th>
+				<th>Animal</th>
+				<th>Quantity</th>
+				<th>Special Instructions</th>
+			</tr>
+			<tr>
+				<td><a href="#">EiEiO</a></td>
+				<td>Old McDonald</td>
+				<td>OMC_10</td>
+				<td>12/3/12 - 5:15pm</td>
+				<td>12/10/12 - 2:00pm</td>
+				<td>Pig</td>
+				<td>3</td>
+				<td>Do not keep in separate holding bin.</td>
+			</tr>
+			<tr>
+				<td><a href="#">Country Farms</a></td>
+				<td>Avery</td>
+				<td>AJ6</td>
+				<td>12/3/12 - 11:00am</td>
+				<td>12/9/12 - 2:00pm</td>
+				<td>Cows</td>
+				<td>2</td>
+				<td>Process within 30 mins of slaughter.</td>
+			</tr>	
+		</table>
+	</div>
+</div>
 
 
 
