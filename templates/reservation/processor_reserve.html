@@ -8,7 +8,7 @@
 
 <div class="row-fluid">
 	<div class="span5 offset1">
-		<img src="http://cdn.dealbreaker.com/uploads/2012/10/cow-22oct12.jpg"></img>
+		<img src="{{STATIC_URL}}img/happycows.jpg" id="happycows"></img>
 	</div>
 	<div class="span5">
 		<div class="tabbable"> <!-- Only required for left/right tabs -->
@@ -24,6 +24,7 @@
 		      <p>7277 Dunnsville Rd</p>
 			  <p>Altamont, NY</p>
 		      <p>518-355-6944</p>
+		      <p>Open 8am - 7pm</p>
 		    </div>
 		    <div class="tab-pane" id="tab2">
 		      <p>These are the services we provide:</p>
@@ -68,8 +69,13 @@
 	<div class="span10 offset1">
 		<div id="calendar">
 		</div>
+	<div>
+		<button type="submit" class="btn btn-large btn-primary">Submit</button>
+	</div>
+	<br>
 	</div>
 </div>
+
 {% endblock %}
 
 {% block jquery_plugins %}
