@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 
+{% block nav %}
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="/">Slot for Slaught</a>
+                <ul class="nav pull-right">
+                  <li><a href="/u/farmer/dashboard/">Dashboard</a></li>
+                  <li><a href="#">Pending Orders</a></li>
+                  <li><a href="#">Closed Orders</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><button type="submit" class="btn btn-info">Logout</button><li>
+                </ul>
+            </div>
+        </div>
+{% endblock %}
+
 {% block content %}
 <div class="container">
 	<p>Processor Reservation Form</p>
@@ -7,7 +22,11 @@
 	<form action="" method="post">
 	  {% csrf_token %}
 	  {{ form.as_p }}
-	  <p><button type="submit">Next Step</button></p>
+	  <div class="row-fluid">
+    	<div class="span6">
+			<a class="btn btn-info btn-large" href="/r/res_cut_step">Choose Your Cuts</a>
+		</div>
+		</div>
 	  </form>
 </div>
 
@@ -18,3 +37,10 @@
 
 
 {% endblock %}
+
+
+<div class="row-fluid">
+    <div class="span6">
+		<a class="btn btn-info btn-large" href="#">New Order</a>
+	</div>
+</div>

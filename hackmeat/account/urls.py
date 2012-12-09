@@ -9,9 +9,6 @@ urlpatterns = patterns('hackmeat.account.views',
     url(r'settings/farmer/?$', r'settings_farmer'),
     url(r'settings/processor?$', r'settings_processor'),
     url(r'processor/(?P<processor>\d+)/?$', r'processor'),
-<<<<<<< HEAD
-    url(r'farmer/dashboard/$', direct_to_template, {'template': 'account/farmer_dashboard.html'})
-=======
-    url(r'processor/dashboard/$', direct_to_template, { 'template': 'account/processor_dashboard.html' }, ),
->>>>>>> b5ec82c656af5f822edfc00f4e2abf6fcdce4c00
+    url(r'farmer/dashboard/$', direct_to_template, {'template': 'account/farmer_dashboard.html'}),
+    url(r'processor/dashboard/$', direct_to_template, { 'template': 'account/processor_dashboard.html' }), 
 )
