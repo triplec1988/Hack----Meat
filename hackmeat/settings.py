@@ -17,17 +17,8 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'production': {
-        'ENGINE': 'postgresql_psycopg2',
-        'NAME': 'hackmeat',
-        'USER': 'hackmeat',
-        'PASSWORD': 'hackmeat',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
-    },
-
     'local': {
-        'ENGINE': 'postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'hackmeat.db',                    # Or path to database file if using sqlite3.
         'USER': '',                             # Not used with sqlite3.
         'PASSWORD': '',                         # Not used with sqlite3.
