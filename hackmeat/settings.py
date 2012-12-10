@@ -36,25 +36,9 @@ DATABASES = {
     }
 }
 
-if LOCAL:
-    DOMAIN = 'localhost:8000'
-    DEBUG_FILENAME = 'hackmeat-local-debug.log'
-    VERSION += " (Local)"
-    DATABASES['default'] = DATABASES['local']
-
-    # precompilation will run every time otherwise
-    COMPRESS_ENABLED = True
-    COMPRESS_MTIME_DELAY = 0
-
-    # Use the django db for dev, but do something better for
-    # production, you know what I'm sayin'?
-    BROKER_URL = 'django://'
-
-else:
-    # DOMAIN = 'hackerunion.org'
-    DEBUG_FILENAME = 'hackmeat-debug.log'
-    VERSION += " (Production)"
-    DATABASES['default'] = DATABASES['production']
+# DOMAIN = 'hackerunion.org'
+DEBUG_FILENAME = 'hackmeat-debug.log'
+VERSION += " (Production)"
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
