@@ -17,6 +17,15 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
+    'production': {
+        'ENGINE': 'django.db.backends',
+        'NAME': 'hackmeat',
+        'USER': 'hackmeat',
+        'PASSWORD': 'hackmeat',
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
+    },
+
     'local': {
         'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'hackmeat.db',                    # Or path to database file if using sqlite3.
