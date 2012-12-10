@@ -18,14 +18,15 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'local': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'hackmeat.db',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': ''
-    }
+# Uncomment for local development
+#    'local': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'hackmeat.db',
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': '',
+#        'PORT': ''
+#    }
 }
 
 if LOCAL:
