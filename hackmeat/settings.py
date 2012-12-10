@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
@@ -215,7 +216,3 @@ PASSWORD_HASHERS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
