@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'production': {
-        'ENGINE': 'django.db.backends',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hackmeat',
         'USER': 'hackmeat',
         'PASSWORD': 'hackmeat',
@@ -55,6 +55,10 @@ else:
     DEBUG_FILENAME = 'hackmeat-debug.log'
     VERSION += " (Production)"
     DATABASES['default'] = DATABASES['production']
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -223,7 +227,3 @@ PASSWORD_HASHERS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
