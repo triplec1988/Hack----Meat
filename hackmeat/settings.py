@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
@@ -16,15 +17,27 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {}
+DATABASES = {
+    'local': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'hackmeat.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
+    }
+}
 
-# DOMAIN = 'hackerunion.org'
-DEBUG_FILENAME = 'hackmeat-debug.log'
-VERSION += " (Production)"
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+if LOCAL:
+    DOMAIN = 'localhost:8000'
+    DEBUG_FILENAME = 'hackmeat-local-debug.log'
+    VERSION += " (Local)"
+    DATABASES['default'] = DATABASES['local']
+else:
+    # DOMAIN = 'hackerunion.org'
+    DEBUG_FILENAME = 'hackmeat-debug.log'
+    VERSION += " (Production)"
+    DATABASES['default'] =  dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
