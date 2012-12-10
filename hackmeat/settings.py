@@ -16,25 +16,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'production': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hackmeat',
-        'USER': 'hackmeat',
-        'PASSWORD': 'hackmeat',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
-    },
-
-    'local': {
-        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'hackmeat.db',                    # Or path to database file if using sqlite3.
-        'USER': '',                             # Not used with sqlite3.
-        'PASSWORD': '',                         # Not used with sqlite3.
-        'HOST': '',                             # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': ''                              # Set to empty string for default. Not used with sqlite3.
-    }
-}
+DATABASES = {}
 
 # DOMAIN = 'hackerunion.org'
 DEBUG_FILENAME = 'hackmeat-debug.log'
