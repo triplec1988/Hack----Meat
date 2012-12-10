@@ -223,3 +223,7 @@ PASSWORD_HASHERS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
