@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
@@ -17,23 +18,15 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'production': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'hackmeat',
-        'USER': 'hackmeat',
-        'PASSWORD': 'hackmeat',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
-    },
-
-    'local': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'hackmeat.db',                    # Or path to database file if using sqlite3.
-        'USER': '',                             # Not used with sqlite3.
-        'PASSWORD': '',                         # Not used with sqlite3.
-        'HOST': '',                             # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': ''                              # Set to empty string for default. Not used with sqlite3.
-    }
+# Uncomment for local development
+#    'local': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'hackmeat.db',
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': '',
+#        'PORT': ''
+#    }
 }
 
 if LOCAL:
@@ -41,20 +34,11 @@ if LOCAL:
     DEBUG_FILENAME = 'hackmeat-local-debug.log'
     VERSION += " (Local)"
     DATABASES['default'] = DATABASES['local']
-
-    # precompilation will run every time otherwise
-    COMPRESS_ENABLED = True
-    COMPRESS_MTIME_DELAY = 0
-
-    # Use the django db for dev, but do something better for
-    # production, you know what I'm sayin'?
-    BROKER_URL = 'django://'
-
 else:
     # DOMAIN = 'hackerunion.org'
     DEBUG_FILENAME = 'hackmeat-debug.log'
     VERSION += " (Production)"
-    DATABASES['default'] = DATABASES['production']
+    DATABASES['default'] =  dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
