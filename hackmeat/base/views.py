@@ -36,8 +36,8 @@ def contact(request):
                     'name': form.cleaned_data.get('name'),
                     'from_email': form.cleaned_data.get('email'),
                     'to': [{
-                        'email': 'slotforslaught@googlegroups.com',
-                        'name': 'Slot for Slaught',
+                        'email': 'triplec1988@gmail.com',
+                        'name': 'Chris Clouten',
                     }],
                 })
                 logging.info('Sent contact email: {0}'.format(form.cleaned_data))
