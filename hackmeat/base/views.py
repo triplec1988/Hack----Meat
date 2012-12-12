@@ -36,7 +36,7 @@ def contact(request):
                     'name': form.cleaned_data.get('name'),
                     'from_email': form.cleaned_data.get('email'),
                     'to': [{
-                        'email': 'slotforslaught@googlegroups.com',
+                        'email': 'jacobduron@gmail.com',
                         'name': 'Slot for Slaught',
                     }],
                 })
