@@ -11,6 +11,9 @@ urlpatterns = patterns('',
     url(r'', include('hackmeat.base.urls')),
     url(r'^u/', include('hackmeat.account.urls')),
     url(r'^r/', include('hackmeat.reservation.urls')),
+    url(r'^about/?$', r'about', name='about'),
+    url(r'^contact/?$', r'contact', name='contact'),
+    url(r'^contact_complete/?$', r'contact_complete', name='contact_complete'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

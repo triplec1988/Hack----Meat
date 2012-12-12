@@ -3,6 +3,13 @@ from django.core.validators import *
 from cuts import *
 
 
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    subject = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea(attrs={'cols': 60}))
+
+
 class ReservationForm(forms.Form):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
