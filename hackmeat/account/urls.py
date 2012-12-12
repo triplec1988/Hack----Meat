@@ -11,4 +11,5 @@ urlpatterns = patterns('hackmeat.account.views',
     url(r'processor/(?P<processor>\d+)/?$', r'processor'),
     url(r'farmer/dashboard/$', direct_to_template, {'template': 'account/farmer_dashboard.html'}),
     url(r'processor/dashboard/$', direct_to_template, {'template': 'account/processor_dashboard.html'}),
+    url(r'^about/?$', r'about', name='about'),
 )

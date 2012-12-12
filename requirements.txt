@@ -10,3 +10,4 @@ kombu==2.4.7
 librabbitmq==0.9.9
 py-bcrypt==0.2
 pytz==2012g
+Mandrill==1.0

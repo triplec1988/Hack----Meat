@@ -45,3 +45,9 @@ def farmer(request):
     return render_to_response('account/farmer.html',
                             {},
                             context_instance=RequestContext(request))
+
+
+def about(request):
+    return render_to_response('base/about.html',
+                            {},
+                            context_instance=RequestContext(request))

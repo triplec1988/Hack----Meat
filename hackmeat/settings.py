@@ -207,3 +207,5 @@ PASSWORD_HASHERS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
+
+MANDRILL_API_KEY = '21fde256-d8da-4c0d-a5c5-1cd193c1f36a'

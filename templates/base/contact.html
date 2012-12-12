@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p style="padding-left: 50px;">To contact us, please fill out the form below.</p>
+
+    <form class="form-horizontal" action="" method="post">
+        {% include "base/include_form.html" %}
+        <div class="form-actions">
+            <button class="btn btn-info btn-large" href="contact_complete" type="submit">Send Message</button>
+        </div>
+    </form>
+{% endblock %}
