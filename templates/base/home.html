@@ -58,7 +58,16 @@
 </div>
 {% endblock %}
 
-{% block footer %}{% endblock %}
+{% block footer %}
+<hr />
+<div class="container-fluid">
+  <footer>
+      <div class="span2">
+        <a href="contact">Contact Us</a>
+      </div>
+  </footer>
+</div><!--footer div-->
+{% endblock %}
 
 {% block modals %}
     {% include "base/modals.html" %}
