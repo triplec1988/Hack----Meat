@@ -25,7 +25,7 @@ DATABASES = {
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
-        'PORT': ''
+        'PORT': '',
     }
 }
 
@@ -38,7 +38,7 @@ else:
     # DOMAIN = 'hackerunion.org'
     DEBUG_FILENAME = 'hackmeat-debug.log'
     VERSION += " (Production)"
-    DATABASES['default'] =  dj_database_url.config()
+  #  DATABASES['default'] =  dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

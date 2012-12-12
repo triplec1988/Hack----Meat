@@ -38,7 +38,8 @@
         {% block modals %}
         {% endblock %}
 
-	<hr />
+	   {% block footer %}
+       <hr />
          <div class="container-fluid">
             <footer>
                 <div class="span2">
@@ -49,7 +50,7 @@
                 </div>
             </footer>
         </div><!--footer div-->
-
+        {% endblock %}
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
