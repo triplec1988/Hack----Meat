@@ -13,8 +13,10 @@ urlpatterns = patterns('hackmeat.account.views',
     url(r'processor/dashboard/$', direct_to_template, {'template': 'account/processor_dashboard.html'}),
     #About URLs
     url(r'processors/about/$', direct_to_template, {'template': 'base/about.html'}),
+    url(r'^signup/about/?$', r'about', name='about'),
     #Contact URLs
     url(r'^processors/contact/?$', r'contact', name='contact'),
     url(r'^farmer/dashboard/contact/?$', r'contact', name='contact'),
     url(r'^processor/dashboard/contact/?$', r'contact', name='contact'),
+    url(r'^signup/contact/?$', r'contact', name='contact'),
 )

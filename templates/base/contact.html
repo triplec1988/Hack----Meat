@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
-    	<p style="margin-left: 50px;">To contact us, please fill out the form below.</p>
-
-    	<form class="form-horizontal" action="" method="post">
-        	{% include "base/include_form.html" %}
-        	<div class="form-actions">
-            	<button class="btn-info btn-large" href="contact_complete" type="submit">Send Message</button>
-        	</div>
-    	</form>
-
+<div class="container">
+    <p>To contact us, please fill out the form below.</p>
+    <form class="form-horizontal" action="" method="post">
+        {% include "base/include_form.html" %}
+        <div class="form-actions">
+            <button class="btn-info btn-large" href="contact_complete" type="submit">Send Message</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
