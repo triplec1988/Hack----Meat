@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
+{% block nav %}
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="/">Slot for Slaught</a>
+        <ul class="nav pull-right">
+          <li><a href="/r/processor_reserve">Farmer</a></li>
+          <li><a href="/u/signup/processor">Processor</a></li>
+          <li class="active"><a href="about">About</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <p>To contact us, please fill out the form below.</p>
