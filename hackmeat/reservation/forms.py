@@ -1,4 +1,4 @@
-from django import forms
+from django import forms, ModelForm
 from django.core.validators import *
 from cuts import *
 
@@ -10,27 +10,25 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea(attrs={'cols': 60}))
 
 
-class ReservationForm(forms.Form):
-    first_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
-    farm_name = forms.CharField(max_length=100)
-    animal_type_one = forms.ChoiceField(choices=ANIMALS)
-    animal_quantity_one = forms.IntegerField()
-    animal_type_two = forms.ChoiceField(choices=ANIMALS, required=False)
-    animal_quantity_two = forms.IntegerField(required=False)
-    desired_pickup = forms.DateField()
+class ReservationForm(ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ('farmers.first_name', 'farmers.last_name', 'famers.farm_name',
+                  'dropoff_time', )
 
 
-class CutForm(forms.Form):
-    pork_shoulder = forms.ChoiceField(choices=PORK_SHOULDER, required=False, widget=forms.CheckboxSelectMultiple)
-    pork_loin = forms.ChoiceField(choices=PORK_LOIN, required=False, widget=forms.CheckboxSelectMultiple)
-    pork_belly = forms.ChoiceField(choices=PORK_BELLY, required=False, widget=forms.CheckboxSelectMultiple)
-    pork_leg = forms.ChoiceField(choices=PORK_LEG, required=False, widget=forms.CheckboxSelectMultiple)
-    pork_sausage = forms.ChoiceField(choices=PORK_SAUSAGE, required=False, widget=forms.CheckboxSelectMultiple)
-    pork_other = forms.ChoiceField(choices=PORK_OTHER, required=False, widget=forms.CheckboxSelectMultiple)
-    beef_rib = forms.ChoiceField(choices=BEEF_RIB, required=False, widget=forms.CheckboxSelectMultiple)
-    beef_loin = forms.ChoiceField(choices=BEEF_LOIN, required=False, widget=forms.CheckboxSelectMultiple)
-    beef_sirloin = forms.ChoiceField(choices=BEEF_SIRLOIN, required=False, widget=forms.CheckboxSelectMultiple)
-    beef_round = forms.ChoiceField(choices=BEEF_ROUND, required=False, widget=forms.CheckboxSelectMultiple)
-    beef_other = forms.ChoiceField(choices=BEEF_OTHER, required=False, widget=forms.CheckboxSelectMultiple)
-    special_instructions = forms.CharField(required=False, widget=forms.Textarea(attrs={'cols': 60}))
+class Animal_ReservationForm(ModelForm):
+    class Meta:
+        model = Animal_ReservationForm
+
+
+class Cut_FormForm(ModelForm):
+    class Meta:
+        model = Cut_Form
+        widgets = {
+            ('pork_shoulder', 'pork_loin', 'pork_belly', 'pork_leg', 
+             'pork_sausage', 'pork_other', 'beef_rib', 'beef_loin', 
+             'beef_sirloin', 'beef_round', 'beef_other': 
+              CheckboxSelectMultiple), ('special_instructions': 
+              Textarea(attrs={'cols': 60}))
+        }
