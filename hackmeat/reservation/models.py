@@ -42,7 +42,7 @@ class Animal_Reservation(models.Model):
     animal_one = models.CharField(max_length=3, choices=ANIMAL, )
     animal_one_quantity = models.PositiveIntegerField()
     animal_two = models.CharField(max_length=3, choices=ANIMAL, blank=True, )
-    animal_two_quantity = models.PositiveIntegerField()
+    animal_two_quantity = models.PositiveIntegerField(null=True, blank=True)
 
 
     def __unicode__(self):

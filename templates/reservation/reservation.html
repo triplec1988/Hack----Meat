@@ -24,8 +24,13 @@
     </div><!--span6--> 
 		<div class="span6">
 			<form action="" method="post">
-        {% include "base/include_form.html" %}
-    			<a><button type="submit" class="btn btn-info btn-large">Choose Your Cuts</button></a>
+        {% with reservation_form as form %}
+          {% include "base/include_form.html" %}
+        {% endwith %}
+        {% with animal_form as form %}
+          {% include "base/include_form.html" %}
+        {% endwith %}
+    		<a><button type="submit" class="btn btn-info btn-large">Choose Your Cuts</button></a>
 	  	</form>
 		</div>
 	</div>

@@ -7,7 +7,7 @@ from django.conf import settings
 import mandrill
 import logging
 
-import forms
+from hackmeat.reservation.forms import *
 
 
 def search(request):
@@ -36,31 +36,34 @@ def confirmation(request):
 
 def reservation(request):
     if request.method == 'POST':
-        form = forms.ReservationForm(request.POST)
-        if form.is_valid():
-            print form.cleaned_data
-            form = forms.CutForm(request.POST)
+        reservation_form = ReservationForm(request.POST, prefix = "reservation")
+        animal_form = Animal_ReservationForm(request.POST, prefix = "animal")
+        if reservation_form.is_valid() and animal_form.is_valid():
+            reservation_form.save() and animal_form.save()
+            
             return redirect('cut_form')
     else:
-        form = forms.ReservationForm()
+        reservation_form = ReservationForm(prefix = "reservation")
+        animal_form = Animal_ReservationForm(prefix = "animal")
         
     return TemplateResponse(request, 'reservation/reservation.html', {
-            'form': form,
+            'reservation_form': reservation_form,
+            'animal_form': animal_form,
     })
 
 
 def cut_step(request):
     if request.method == 'POST':
-        form = forms.CutForm(request.POST)
-        if form.is_valid():
-            print form.cleaned_data
+        cut_form = Cut_FormForm(request.POST, prefix = "cut")
+        if cut_form.is_valid():
+            cut_form.save()
             
             return redirect('res_complete')
     else:
-        form = forms.CutForm()
+        cut_form = Cut_FormForm(prefix = "cut")
         
     return TemplateResponse(request, 'reservation/cut_step.html', {
-            'form': form,
+            'cut_form': cut_form,
     })
 
 

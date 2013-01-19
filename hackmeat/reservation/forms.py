@@ -1,6 +1,8 @@
-from django import forms, ModelForm
 from django.core.validators import *
 from cuts import *
+from django import forms
+from django.forms import ModelForm
+from hackmeat.reservation.models import *
 
 
 class ContactForm(forms.Form):
@@ -13,22 +15,14 @@ class ContactForm(forms.Form):
 class ReservationForm(ModelForm):
     class Meta:
         model = Reservation
-        fields = ('farmers.first_name', 'farmers.last_name', 'famers.farm_name',
-                  'dropoff_time', )
+        exclude = ('status')
 
 
 class Animal_ReservationForm(ModelForm):
     class Meta:
-        model = Animal_ReservationForm
+        model = Animal_Reservation
 
 
 class Cut_FormForm(ModelForm):
     class Meta:
         model = Cut_Form
-        widgets = {
-            ('pork_shoulder', 'pork_loin', 'pork_belly', 'pork_leg', 
-             'pork_sausage', 'pork_other', 'beef_rib', 'beef_loin', 
-             'beef_sirloin', 'beef_round', 'beef_other': 
-              CheckboxSelectMultiple), ('special_instructions': 
-              Textarea(attrs={'cols': 60}))
-        }
