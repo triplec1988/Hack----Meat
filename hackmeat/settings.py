@@ -39,7 +39,7 @@ else:
     # DOMAIN = 'hackerunion.org'
     DEBUG_FILENAME = 'hackmeat-debug.log'
     VERSION += " (PreProd)"
-  #  DATABASES['default'] =  dj_database_url.config()
+    DATABASES['default'] = dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -153,9 +153,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'widget_tweaks',
-    'djcelery',
-    'djkombu'
+    # 'widget_tweaks',
+    # 'djcelery',
+    # 'djkombu',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -211,6 +211,3 @@ AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 MANDRILL_API_KEY = '21fde256-d8da-4c0d-a5c5-1cd193c1f36a'
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
