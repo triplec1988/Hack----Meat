@@ -15,5 +15,14 @@ urlpatterns = patterns('hackmeat.account.views',
     url(r'farmer/signup/$', 'signup_farmer', name='farmer_signup'),
     url(r'processor/signup/$', 'signup_processor', name='processor_signup'),
     url(r'user/edit/$', 'user_edit', name='user_edit'),
-
+    #About URLs
+    url(r'processors/about/$', direct_to_template, {'template': 'base/about.html'}),
+    url(r'^signup/about/?$', r'about', name='about'),
+    url(r'^signup/processor/about/?$', r'about', name='about'),
+    #Contact URLs
+    url(r'^processors/contact/?$', r'contact', name='contact'),
+    url(r'^farmer/dashboard/contact/?$', r'contact', name='contact'),
+    url(r'^processor/dashboard/contact/?$', r'contact', name='contact'),
+    url(r'^signup/contact/?$', r'contact', name='contact'),
+    url(r'^signup/processor/contact/?$', r'contact', name='contact'),
 )

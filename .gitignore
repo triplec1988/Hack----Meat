@@ -11,6 +11,7 @@
 .DS_Store
 .sass-cache
 env
+venv
 build
 !var/assets/media/images/default
 !var/assets/media/thumbnails/default

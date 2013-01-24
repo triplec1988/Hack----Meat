@@ -1,6 +1,7 @@
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+<<<<<<< HEAD
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
@@ -9,6 +10,16 @@ from django.template.response import TemplateResponse
 
 import forms 
 import models
+=======
+from django.template.response import TemplateResponse
+from django.shortcuts import redirect
+from django.conf import settings
+
+import mandrill
+import logging
+
+import forms
+>>>>>>> 689b49e40fb468291135292e8ac4970ff45d0f14
 
 
 def processors(request, zipcode=11201):
@@ -82,6 +93,7 @@ def farmer(request):
                             {},
                             context_instance=RequestContext(request))
 
+<<<<<<< HEAD
 def user_edit(request):
     user = request.user
     if request.method == 'POST':
@@ -151,3 +163,45 @@ def user_signup(request):
 
 
 
+=======
+
+def about(request):
+    return render_to_response('base/about.html',
+                            {},
+                            context_instance=RequestContext(request))
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            try:
+                # send the contact information via Mandrill
+                m = mandrill.Mandrill(settings.MANDRILL_API_KEY)
+                m.messages.send({
+                    'text': form.cleaned_data.get('message'),
+                    'subject': form.cleaned_data.get('subject'),
+                    'name': form.cleaned_data.get('name'),
+                    'from_email': form.cleaned_data.get('email'),
+                    'to': [{
+                        'email': 'gabriel@foodfortherestofus.com',
+                        'name': 'Gabriel Key',
+                    }],
+                })
+                logging.info('Sent contact email: {0}'.format(form.cleaned_data))
+            except mandrill.InvalidKeyError, e:
+                logging.error('Cannot send contact email: {0}'.format(
+                    form.cleaned_data))
+                logging.exception(e)
+            except mandrill.Error, e:
+                logging.error('Cannot send contact email: {0}'.format(
+                    form.cleaned_data))
+                logging.exception(e)
+            return redirect('contact_complete')
+    else:
+        form = forms.ContactForm()
+
+    return TemplateResponse(request, 'base/contact.html', {
+        'form': form,
+    })
+>>>>>>> 689b49e40fb468291135292e8ac4970ff45d0f14

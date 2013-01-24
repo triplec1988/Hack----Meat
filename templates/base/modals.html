@@ -26,4 +26,14 @@
       var link = document.getElementById('goButton');
       link.href = "/u/processors/" + zipcode;
   });
+
+  $('#zipcode').keypress(function(e) {
+    if (e.which == 13) {
+      zipcode = document.getElementById('zipcode').value; // get the current value of the input field.
+
+      var link = document.getElementById('goButton');
+      location.href = "/u/processors/" + zipcode;
+      e.preventDefault();
+    }
+  })
 </script>

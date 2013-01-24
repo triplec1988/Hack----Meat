@@ -1,5 +1,6 @@
 from django.db import models
 from hackmeat.account.models import Processor, Farmer
+from cuts import *
 
 # Create your models here.
 
@@ -10,17 +11,26 @@ STATUS = (
     ('CP', 'Complete'),
 )
 
+ANIMAL = (
+    ('HOG', 'Hog'),
+    ('COW', 'Cow'),
+)
+
 
 class Reservation(models.Model):
     farmer = models.ForeignKey(Farmer, related_name='farmers')
     processor = models.ForeignKey(Processor, related_name='processors')
-    instruction = models.TextField()
     dropoff_time = models.DateTimeField()
-    pickup_time = models.DateTimeField()
+    animal_one = models.CharField(max_length=3, choices=ANIMAL, )
+    animal_one_quantity = models.PositiveIntegerField()
+    animal_two = models.CharField(max_length=3, choices=ANIMAL, blank=True, )
+    animal_two_quantity = models.PositiveIntegerField(null=True, blank=True)
     status = models.CharField(max_length=2, choices=STATUS)
 
     def __unicode__(self):
-        return u'{0} - {3}'.format(self.farmer.farm_name, self.processor.plant_name, self.dropoff_time, self.status, )
+        return u'{0} - {4}'.format(self.id, self.farmer.farm_name, 
+                                   self.processor.plant_name, self.dropoff_time, 
+                                   self.status, )
 
 
 class Blackout(models.Model):
@@ -33,18 +43,17 @@ class Blackout(models.Model):
         return u'{0} - {2}'.format(self.processor, self.start_time, self.end_time, )
 
 
-class Animal_Reservation(models.Model):
-    reservation = models.ForeignKey('Reservation', related_name='reservations')
-    animal = models.ForeignKey('Animal', related_name='animal_type')
-    animal_quantity = models.PositiveIntegerField()
-    cut = models.CharField(max_length=100)
-
-    def __unicode__(self):
-        return u'{0} - {2}'.format(self.reservation, self.animal, self.animal_quantity, )
-
-
-class Animal(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __unicode__(self):
-        return u'{0}'.format(self.name, )
+class Cut_Form(models.Model):
+    reservation = models.ForeignKey(Reservation, related_name='cut_reservations')
+    pork_shoulder = models.CharField(max_length=3, choices=PORK_SHOULDER, blank=True, )
+    pork_loin = models.CharField(max_length=3, choices=PORK_LOIN, blank=True, )
+    pork_belly = models.CharField(max_length=3, choices=PORK_BELLY, blank=True, )
+    pork_leg = models.CharField(max_length=3, choices=PORK_LEG, blank=True, )
+    pork_sausage = models.CharField(max_length=3, choices=PORK_SAUSAGE, blank=True, )
+    pork_other = models.CharField(max_length=3, choices=PORK_OTHER, blank=True, )
+    beef_rib = models.CharField(max_length=3, choices=BEEF_RIB, blank=True, )
+    beef_loin = models.CharField(max_length=3, choices=BEEF_LOIN, blank=True, )
+    beef_sirloin = models.CharField(max_length=3, choices=BEEF_SIRLOIN, blank=True, )
+    beef_round = models.CharField(max_length=3, choices=BEEF_ROUND, blank=True, )
+    beef_other = models.CharField(max_length=3, choices=BEEF_OTHER, blank=True, )
+    special_instructions = models.CharField(max_length=500, blank=True, )
