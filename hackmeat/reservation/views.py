@@ -37,18 +37,15 @@ def confirmation(request):
 def reservation(request):
     if request.method == 'POST':
         reservation_form = ReservationForm(request.POST, prefix = "reservation")
-        animal_form = Animal_ReservationForm(request.POST, prefix = "animal")
-        if reservation_form.is_valid() and animal_form.is_valid():
-            reservation_form.save() and animal_form.save()
+        if reservation_form.is_valid():
+            reservation_form.save()
             
             return redirect('cut_form')
     else:
         reservation_form = ReservationForm(prefix = "reservation")
-        animal_form = Animal_ReservationForm(prefix = "animal")
         
     return TemplateResponse(request, 'reservation/reservation.html', {
             'reservation_form': reservation_form,
-            'animal_form': animal_form,
     })
 
 

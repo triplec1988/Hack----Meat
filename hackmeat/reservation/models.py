@@ -21,10 +21,16 @@ class Reservation(models.Model):
     farmer = models.ForeignKey(Farmer, related_name='farmers')
     processor = models.ForeignKey(Processor, related_name='processors')
     dropoff_time = models.DateTimeField()
+    animal_one = models.CharField(max_length=3, choices=ANIMAL, )
+    animal_one_quantity = models.PositiveIntegerField()
+    animal_two = models.CharField(max_length=3, choices=ANIMAL, blank=True, )
+    animal_two_quantity = models.PositiveIntegerField(null=True, blank=True)
     status = models.CharField(max_length=2, choices=STATUS)
 
     def __unicode__(self):
-        return u'{0} - {3}'.format(self.farmer.farm_name, self.processor.plant_name, self.dropoff_time, self.status, )
+        return u'{0} - {4}'.format(self.id, self.farmer.farm_name, 
+                                   self.processor.plant_name, self.dropoff_time, 
+                                   self.status, )
 
 
 class Blackout(models.Model):
@@ -35,18 +41,6 @@ class Blackout(models.Model):
 
     def __unicode__(self):
         return u'{0} - {2}'.format(self.processor, self.start_time, self.end_time, )
-
-
-class Animal_Reservation(models.Model):
-    reservation = models.ForeignKey(Reservation, related_name='animal_reservations')
-    animal_one = models.CharField(max_length=3, choices=ANIMAL, )
-    animal_one_quantity = models.PositiveIntegerField()
-    animal_two = models.CharField(max_length=3, choices=ANIMAL, blank=True, )
-    animal_two_quantity = models.PositiveIntegerField(null=True, blank=True)
-
-
-    def __unicode__(self):
-        return u'{0} - {2}'.format(self.reservation, self.animal_one, self.animal_one_quantity, )
 
 
 class Cut_Form(models.Model):

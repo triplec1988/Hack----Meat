@@ -18,11 +18,6 @@ class ReservationForm(ModelForm):
         exclude = ('status')
 
 
-class Animal_ReservationForm(ModelForm):
-    class Meta:
-        model = Animal_Reservation
-
-
 class Cut_FormForm(ModelForm):
     class Meta:
         model = Cut_Form
