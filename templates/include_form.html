@@ -1,0 +1,28 @@
+{% csrf_token %}
+
+{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+
+{% if form.non_field_errors %}
+    <ol>
+    {% for error in form.non_field_errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+{% for field in form %}
+    <div class="control-group {% if field.errors %}error{% endif %}">
+        <label class="control-label {{ field.css_classes }}" for="{{ field.auto_id }}">
+            {{ field.label }}{% if field.field.required %}*{% endif %}
+        </label>
+        <div class="controls">
+            {{ field }}
+            <span class="help-inline">{{ field.errors|join:", "|escape }}</span>
+            {% if field.help_text %}
+                <br/>
+                <span class="help-inline"><em>{{ field.help_text|escape }}</em>
+                </span>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
