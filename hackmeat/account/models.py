@@ -1,37 +1,47 @@
 from django.db import models
 from hackmeat.reservation.models import *
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 # Create your models here.
 
+PROFILE_CHOICES = (
+    ('FA', 'Farmer'),
+    ('PR', 'Processor'),
+
+    )
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, related_name='profiles')
+    occupation = models.CharField(max_length=2, choices=PROFILE_CHOICES)
+
+def save(self, *args, **kwargs):
+    if not self.pk:
+        try:
+            existing = UserProfile.objects.get(user=self.user)
+            self.pk = existing.pk
+        except UserProfile.DoesNotExist:
+            pass
+            models.Model.save(self, *args, **kwargs)
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        try:
+            profile, created = UserProfile.objects.get_or_create(user=instance)
+        except:
+            pass
+
+post_save.connect(create_user_profile, sender=User)
 
 class Farmer(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    farm_name = models.CharField(max_length=100)
-    user_name = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
-    city = models.CharField(max_length=50)
-    zipcode = models.PositiveIntegerField(max_length=10)
-
-    def __unicode__(self):
-        return u'{0} - {3}'.format(self.first_name, self.last_name, self.farm_name, self.zipcode)
-
+    user_profile = models.OneToOneField(UserProfile, related_name='farmers')
+    farm_name = models.CharField(max_length=30)
 
 class Processor(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    plant_name = models.CharField(max_length=100)
-    user_name = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
-    city = models.CharField(max_length=50)
-    zipcode = models.PositiveIntegerField(max_length=10)
-    resource = models.ManyToManyField('Resource')
-    animal_spec = models.CharField(max_length=140, verbose_name='Animal Specialization', blank=True)
-    cut_spec = models.CharField(max_length=140, verbose_name='Butchering Specialization', blank=True)
-    capacity = models.PositiveIntegerField()
-
-    def __unicode__(self):
-        return u'{0} - {3}'.format(self.first_name, self.last_name, self.plant_name, self.zipcode)
+    user_profile = models.OneToOneField(UserProfile, related_name='processors')
+    plant_name = models.CharField(max_length=30)
 
 
 class Resource(models.Model):
