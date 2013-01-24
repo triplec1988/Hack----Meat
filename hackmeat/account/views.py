@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import *
 from django.template.response import TemplateResponse
 
 import forms 
@@ -21,27 +21,15 @@ def processors(request, zipcode=11201):
 
 def signup_farmer(request):
     if request.method == 'POST':
-        uform = forms.UserSignupForm(data=request.POST)
-        pform = forms.FarmerForm(data=request.POST)
-        if uform.is_valid() and pform.is_valid():
-            user = uform.save()
-           
-            profile = pform.save(commit = False)
-            profile.user = user
-            profile.save()
-             #Log user in
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            messages.success(request, u'Welcome to the Slot For Slaught')
-            return redirect('farmer_dash')
+        form = forms.FarmerForm(data=request.POST, instance=userprofile)
+        if form.is_valid():
+            farmer = form.save()
+            return redirect('home')
     else:
-        uform = forms.UserSignupForm()
-        pform = forms.FarmerForm()
+            form = forms.FarmerForm()
     return TemplateResponse(request, 'account/signup_farmer.html', {
-        'form1': uform,
-        'form2': pform,
+        'form': form
+
         })
 
 
@@ -100,8 +88,7 @@ def user_edit(request):
         form = forms.UserForm(data=request.POST, instance=user)
         if form.is_valid():
             form.save()
-            message.success(request, u'User updated!')
-            return redirect('user_edit')
+            return redirect('home')
     else:
         form = forms.UserForm(instance=user)
     return TemplateResponse(request, 'account/user_edit.html', {
@@ -111,18 +98,25 @@ def user_edit(request):
         })
 
 def login_view(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = authenticate(username=username, password=password)
-    if user is not None and user.is_active:
-        login(request, user)
-        return redirect('farmer_dash')
-    else:
-        return redirect('farmer_signup')
-    return TemplateResponse(request, 'registration/login.html',{
+    username = password = ''
+    if request.method == 'POST':
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+
+        user = authenticate(username=username, password=password)
+        if user is not None and user.is_active:
+            login(request, user)
+            return redirect('farmer_dash')
+        else:
+            return redirect('farmer_signup')
+    return TemplateResponse(request, 'registration/login.html', {
         'username': username,
         'password': password,
-        })
+ })
+
+def logout_view(request):
+    logout(request)
+    return TemplateResponse(request, 'registration/logout.html')
 
 
 
@@ -135,12 +129,11 @@ def user_signup(request):
              #Log user in
             username = uform.cleaned_data['username']
             password = uform.cleaned_data['password1']
-            print uform.cleaned_data['occupation']
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, u'Welcome to the Slot For Slaught')
-            #if uform.cleaned_data['occupation'] == 'FA':
-            return redirect('farmer_dash')
+            if uform.cleaned_data['occupation'] == 'FA':
+                return redirect('farmer_signup')
     else:
         uform = forms.UserSignupForm()
         pform = forms.UserProfileForm()

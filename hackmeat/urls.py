@@ -14,7 +14,8 @@ urlpatterns = patterns('',
     url(r'^u/', include('hackmeat.account.urls')),
     url(r'^r/', include('hackmeat.reservation.urls')),
     #url(r'^accounts/', include('django.contrib.auth.urls'))
-    url(r'^accounts/login/$', 'hackmeat.account.views.login_view',)
+    url(r'^accounts/login/$', 'hackmeat.account.views.login_view', name='login'),
+    url(r'^accounts/logout/$', 'hackmeat.account.views.logout_view', )
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

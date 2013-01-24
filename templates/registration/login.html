@@ -3,25 +3,25 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<form action="" method="post" class="form-horizontal">
-    <input type="hidden" name="next" value="{{ next }}" />
-
+<div class='container'>
     <div class="row-fluid">
-        <div class="span12">
-            {% include "include_form.html" %}
-
-            <div class="control-group {% if form.password.errors %}error{% endif %}">
-                <div class="controls">
-                    <span class="help-inline">{{ form.password.errors|join:", "|escape }}</span>
-                        <br/>
-                    <span class="help-inline"><a href="{% url password_reset %}">Forgot Password?</a></span>
-                </div>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" value="login">Login</button>
+            <div class="span12">
+                {% if form.errors %}
+                <p class="error">Sorry, that's not a valid username or password</p>
+                {% endif %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <label for="username">User name:</label>
+                    <input type="text" name="username" value="" id="username">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" value="" id="password">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" value="login">Login</button>
+                        <input type="hidden" name="next" value="{{ next|escape }}" />
+                    </div>
+                </form>    
             </div>
         </div>
-    </div>
-</form>
+</div>
 {% endblock %}
