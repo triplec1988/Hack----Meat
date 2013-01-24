@@ -1,6 +1,5 @@
 from django import forms
 from django.core.validators import *
-<<<<<<< HEAD
 from models import *
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -50,14 +49,8 @@ class ProcessorForm(forms.ModelForm):
 		fiels = ('plant_name')
 
 
-
-
-=======
-
-
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100)
     subject = forms.CharField(max_length=100)
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea(attrs={'cols': 60}))
->>>>>>> 689b49e40fb468291135292e8ac4970ff45d0f14

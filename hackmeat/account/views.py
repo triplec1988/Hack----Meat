@@ -1,7 +1,5 @@
-
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-<<<<<<< HEAD
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
@@ -10,7 +8,7 @@ from django.template.response import TemplateResponse
 
 import forms 
 import models
-=======
+
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect
 from django.conf import settings
@@ -19,7 +17,6 @@ import mandrill
 import logging
 
 import forms
->>>>>>> 689b49e40fb468291135292e8ac4970ff45d0f14
 
 
 def processors(request, zipcode=11201):
@@ -93,7 +90,7 @@ def farmer(request):
                             {},
                             context_instance=RequestContext(request))
 
-<<<<<<< HEAD
+
 def user_edit(request):
     user = request.user
     if request.method == 'POST':
@@ -108,6 +105,7 @@ def user_edit(request):
         'user': user,
         
         })
+
 
 def login_view(request):
     username = password = ''
@@ -131,7 +129,6 @@ def logout_view(request):
     return TemplateResponse(request, 'registration/logout.html')
 
 
-
 def user_signup(request):
     if request.method == 'POST':
         uform = forms.UserSignupForm(data=request.POST)
@@ -153,17 +150,6 @@ def user_signup(request):
         'form': uform,
         })
 
-
-
-
-
-
-
-
-
-
-
-=======
 
 def about(request):
     return render_to_response('base/about.html',
@@ -204,4 +190,3 @@ def contact(request):
     return TemplateResponse(request, 'base/contact.html', {
         'form': form,
     })
->>>>>>> 689b49e40fb468291135292e8ac4970ff45d0f14
